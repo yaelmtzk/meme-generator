@@ -20,15 +20,19 @@
         <section class="editor hide">
 
             <!-- Canvas -->
-            <div class="canvas-container"> 
+            <section class="canvas-container"> 
                 <canvas width="400" height="400">
                 </canvas> 
-            </div> 
+            </section>
 
-            <div class="edit-panel">
+            <section class="edit-panel">
+                <!-- Edit text -->
                 <input oninput="onChangeTxt(this.value)" class="text-input" 
                 type="text" placeholder="Create your own phrase">
-            </div>
+
+                <!-- Dowload -->
+                <a href="" class="download-pic" onclick="onDownloadMeme(this)">Download</a>
+
         </section>
 
     </main>

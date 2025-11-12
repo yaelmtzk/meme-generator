@@ -47,3 +47,9 @@ function renderMeme() {
         gCtx.strokeText(text, x, y)
     }
 }
+
+function onDownloadMeme(elLink){ 
+    const memeContent = gElCanvas.toDataURL('image/jpeg', 1.0)
+    elLink.href = memeContent
+    elLink.download = 'my-meme.jpg'
+}

@@ -21,6 +21,8 @@ function renderGalery() {
 function onImgSelect(nameId) {
     setImg(nameId)
 
+    renderMeme()
+
     elGallery.classList.add('hide')
 
     document.querySelector('.editor').classList.remove('hide')

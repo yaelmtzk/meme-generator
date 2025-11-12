@@ -63,10 +63,23 @@ function setImg(imgNameId) {
         lines: [
             { 
                 txt: 'Why though?', 
-                size: 30, 
+                size: 20, 
                 color: 'white' 
             }] 
         }
-
-    renderMeme()
 }
+
+function setTextSize(choice) {
+    var currSize = gMeme.lines[gMeme.selectedLineIdx].size
+
+    if (choice === 'increase'){
+        gMeme.lines[gMeme.selectedLineIdx].size++
+        
+    }
+    else{
+        if(currSize>20){
+            gMeme.lines[gMeme.selectedLineIdx].size--
+        }
+    }
+}
+

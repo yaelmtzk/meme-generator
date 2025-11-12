@@ -6,3 +6,11 @@ img{
     height: 200px;
     cursor: pointer;
 }
+
+button{
+    cursor: pointer;
+}
+
+#color{
+    cursor: pointer;
+}

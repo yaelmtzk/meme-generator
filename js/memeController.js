@@ -36,7 +36,7 @@ function renderMeme() {
         const text = currMeme.lines[currMeme.selectedLineIdx].txt
         const x = gElCanvas.width / 2
         const y = gElCanvas.height *0.10
-        gCtx.lineWidth = 2
+        gCtx.lineWidth = 1
         gCtx.strokeStyle = 'black'
         gCtx.fillStyle = currMeme.lines[currMeme.selectedLineIdx].color
         gCtx.font = `bold ${currMeme.lines[currMeme.selectedLineIdx].size}px Arial`
@@ -59,3 +59,7 @@ function onChangeTextColor(color){
     renderMeme()
 }
 
+function onChangeTxtSize(change){
+    setTextSize(change)
+    renderMeme()
+}

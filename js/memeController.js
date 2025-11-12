@@ -10,6 +10,14 @@ function onInit(){
     renderMeme()
 }
 
+function onChangeTxt(text) {
+    const currMeme = getMeme()
+    const lineIdx = currMeme.selectedLineIdx
+    setLineText(text, lineIdx)
+
+    renderMeme()
+}
+
 function renderMeme() {
 
     const images = getImgs()

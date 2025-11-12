@@ -1,0 +1,8 @@
+.hide{
+    display: none;
+}
+
+img{
+    height: 200px;
+    cursor: pointer;
+}

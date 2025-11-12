@@ -17,15 +17,19 @@
         <!-- Gallery -->
         <section class="gallery"></section>
         <!-- Editor -->
-        <section class="editor">
+        <section class="editor hide">
 
             <!-- Canvas -->
             <div class="canvas-container"> 
                 <canvas width="400" height="400">
                 </canvas> 
             </div> 
-        </section>
 
+            <div class="edit-panel">
+                <input oninput="onChangeTxt(this.value)" class="text-input" 
+                type="text" placeholder="Create your own phrase">
+            </div>
+        </section>
 
     </main>
 
@@ -33,7 +37,8 @@
 
 
 
-
-  <script src="js/memeController.js"></script>
+    <script src="js/memeService.js"></script>
+    <script src="js/galleryController.js"></script>    
+    <script src="js/memeController.js"></script>
 
 </body>

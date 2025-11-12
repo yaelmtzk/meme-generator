@@ -46,6 +46,11 @@ function setLineText(lineText, lineIdx) {
     gMeme.lines[lineIdx].txt = lineText
 }
 
+function setTextColor(txtColor) {
+    gMeme.lines[gMeme.selectedLineIdx].color = txtColor
+}
+
+
 function setImg(imgNameId) {
 
     const imgs = getImgs()

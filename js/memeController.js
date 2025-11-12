@@ -53,3 +53,9 @@ function onDownloadMeme(elLink){
     elLink.href = memeContent
     elLink.download = 'my-meme.jpg'
 }
+
+function onChangeTextColor(color){
+    setTextColor(color)
+    renderMeme()
+}
+

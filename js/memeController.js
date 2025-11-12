@@ -12,22 +12,26 @@ function onInit(){
 
 function renderMeme() {
 
+    const images = getImgs()
+    const currMeme = getMeme()
+    const memeUrl = images.find(img => img.id === currMeme.selectedImgId).url
+
     // Adds Img
     const img = new Image()
-    img.src = 'img/2.jpg'
+    img.src = memeUrl
 
     img.onload = function (){
         gElCanvas.height = (img.naturalHeight / img.naturalWidth) * gElCanvas.width
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 
         // Adds text
-        const text = 'Why though?'
+        const text = currMeme.lines[currMeme.selectedLineIdx].txt
         const x = gElCanvas.width / 2
         const y = gElCanvas.height *0.10
         gCtx.lineWidth = 2
         gCtx.strokeStyle = 'black'
-        gCtx.fillStyle = 'white'
-        gCtx.font = 'bold 30px Arial'
+        gCtx.fillStyle = currMeme.lines[currMeme.selectedLineIdx].color
+        gCtx.font = `bold ${currMeme.lines[currMeme.selectedLineIdx].size}px Arial`
         gCtx.textAlign = 'center'
         gCtx.textBaseline = 'middle'
 

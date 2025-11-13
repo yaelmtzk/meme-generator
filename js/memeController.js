@@ -148,3 +148,11 @@ function onClick(ev) {
     }
     
 }
+
+function onSwitchLine() {
+    changeSelectedLine()
+    renderMeme()
+
+    const meme = getMeme()
+    document.querySelector('.text-input').value = meme.lines[meme.selectedLineIdx].txt
+}

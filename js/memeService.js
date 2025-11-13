@@ -24,6 +24,8 @@ var gMeme = {}
 
 var gKeywordSearchCountMap = {} //{'funny': 12,'cat': 16, 'baby': 2} 
 
+var gSelectOperator = 'plus'
+
 function getMeme(){
     return gMeme
 }
@@ -79,4 +81,30 @@ function _addLine(text) {
 
 function addNewLine() {
     gMeme.lines.push(_addLine())
+}
+
+function changeSelectedLine() {
+    const { lines } = gMeme
+    
+    if (gMeme.selectedLineIdx === -1) {
+        gMeme.selectedLineIdx = 0
+        return
+    }
+
+    let idx = gMeme.selectedLineIdx
+
+    if (gSelectOperator === 'plus') {
+        idx++
+        if (idx === lines.length) {
+            gSelectOperator = 'minus'
+            idx = lines.length - 2
+        }
+    } else {
+        idx--
+        if (idx === -1) {
+            gSelectOperator = 'plus'
+            idx = 1
+        }
+    }
+    gMeme.selectedLineIdx = idx
 }

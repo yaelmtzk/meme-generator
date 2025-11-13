@@ -3,16 +3,8 @@
 var gElCanvas
 var gCtx
 
-
-    gElCanvas = document.querySelector('canvas')
-    gCtx = gElCanvas.getContext('2d')
-
-// function onInit(){
-//     gElCanvas = document.querySelector('canvas')
-//     gCtx = gElCanvas.getContext('2d')
-
-//     renderMeme()
-// }
+gElCanvas = document.querySelector('canvas')
+gCtx = gElCanvas.getContext('2d')
 
 function renderMeme() {
 
@@ -54,14 +46,6 @@ function onAddLine() {
     renderMeme()
 }
 
-function onSwitchLine() {
-    changeSelectedLine()
-    renderMeme()
-
-    const meme = getMeme()
-    document.querySelector('.text-input').value = meme.lines[meme.selectedLineIdx].txt
-}
-
 function onChangeTxt(text) {
     const currMeme = getMeme()
     const lineIdx = currMeme.selectedLineIdx
@@ -74,12 +58,22 @@ function renderTxt(memeObj) {
 
     const lines = memeObj.lines
 
+    let x = gElCanvas.width /2
+    let y = gElCanvas.height *0.1
+    let acc = 2
+    
     lines.forEach(line => {
         const text = line.txt
-        var x = gElCanvas.width /2
-        var y = gElCanvas.height *0.1
 
         if (lines.indexOf(line)===1) y = gElCanvas.height *0.9
+
+        if (lines.indexOf(line)>1) {
+            y = gElCanvas.height * (0.1 * acc)
+            acc++
+        }
+
+        line.coord.x = x
+        line.coord.y = y       
 
         gCtx.lineWidth = 1.5
         gCtx.strokeStyle = 'black'
@@ -97,16 +91,60 @@ function renderTxt(memeObj) {
     })
 }
 
-function renderTxtBox(lineTxt,xCoor, yCoor) {
-    const metrics = gCtx.measureText(lineTxt)
-    const textWidth = metrics.width
-    const textHeight = metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent
-    const padding = 10
-    const rectX = xCoor - padding - (textWidth/ 2)
-    const rectY = yCoor - padding - (textHeight / 2)
-    const rectWidth = textWidth + (2 * padding)
-    const rectHeight = textHeight + (2 * padding)
+function renderTxtBox(txt,xValue, yValue) {
+    const measures = measureTxT(txt,xValue, yValue)
+
     gCtx.strokeStyle = "black"
     gCtx.lineWidth = 1
-    gCtx.strokeRect(rectX, rectY, rectWidth, rectHeight)        
+    gCtx.strokeRect(measures.rectX, measures.rectY, 
+        measures.rectWidth, measures.rectHeight)      
+}
+
+function measureTxT(lineTxt, xCoor, yCoor) {
+    const metrics = gCtx.measureText(lineTxt)
+    const textWidth = metrics.width
+    const textHeight = metrics.actualBoundingBoxAscent 
+    + metrics.actualBoundingBoxDescent
+    const padding = 10
+
+    return {
+        rectX: xCoor - padding - (textWidth/ 2),
+        rectY: yCoor - padding - (textHeight / 2),
+        rectWidth: textWidth + (2 * padding),
+        rectHeight: textHeight + (2 * padding)            
+    }
+}
+
+function onClick(ev) {
+
+    const meme  = getMeme()
+    const lines = meme.lines
+    
+    const { offsetX, offsetY } = ev
+
+    var clickedLine = lines.find(line => {
+        const { x, y } = line.coord
+        gCtx.font = `bold ${line.size}px Arial`
+
+        const txtMeasure = measureTxT(line.txt, x, y)  
+        return (
+            offsetX >= txtMeasure.rectX && 
+            offsetX <= txtMeasure.rectX + txtMeasure.rectWidth
+            && offsetY >= txtMeasure.rectY 
+            && offsetY <= txtMeasure.rectY + txtMeasure.rectHeight)
+    })
+
+    if (clickedLine) {
+        meme.selectedLineIdx = lines.indexOf(clickedLine)
+        renderMeme()
+        document.querySelector('.text-input').value = meme.lines[meme.selectedLineIdx].txt
+        
+    } else {
+        if(meme.selectedLineIdx !== -1){
+            meme.selectedLineIdx = -1
+            renderMeme()
+            document.querySelector('.text-input').value = ''
+        }
+    }
+    
 }

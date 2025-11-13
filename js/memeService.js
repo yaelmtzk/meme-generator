@@ -20,8 +20,6 @@ const gImgs = [
   { id: 17, url: 'img/17.jpg', keywords: ['movie', 'explain'] }
 ]
 
-var gSelectOperator = 'plus'
-
 var gMeme = {} 
 
 var gKeywordSearchCountMap = {} //{'funny': 12,'cat': 16, 'baby': 2} 
@@ -50,7 +48,7 @@ function setImg(imgNameId) {
 
     gMeme = { 
         selectedImgId: currImg.id, 
-        selectedLineIdx: '', 
+        selectedLineIdx: -1, 
         lines: [_addLine()]
     }
 }
@@ -73,41 +71,12 @@ function _addLine(text) {
     const newline = { 
             txt: text || 'Write your text here',
             size: 25, 
-            color: 'white'
+            color: 'white',
+            coord: {x: 0, y: 0}
         }
     return newline
 }
 
 function addNewLine() {
     gMeme.lines.push(_addLine())
-    
 }
-
-function changeSelectedLine() {
-    
-    if (!gMeme.selectedLineIdx) gMeme.selectedLineIdx = 0
-
-    const { lines, selectedLineIdx } = gMeme
-
-    let newIdx = selectedLineIdx
-
-    if (gSelectOperator === 'plus') {
-        newIdx++
-        if (newIdx >= lines.length) {
-            gSelectOperator = 'minus'
-            newIdx = lines.length - 2
-        }
-    } else {
-        newIdx--
-        if (newIdx < 0) {
-            gSelectOperator = 'plus'
-            newIdx = 1
-        }
-    }
-
-    newIdx = Math.max(0, Math.min(newIdx, lines.length - 1))
-    gMeme.selectedLineIdx = newIdx
-
-    console.log('selected line:', gMeme.lines[newIdx])
-}
-

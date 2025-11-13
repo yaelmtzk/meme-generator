@@ -1,7 +1,7 @@
 'use strict'
 
-// var gImgsNum = getImgs().length
-var gImgsNum = 2
+var gImgsNum = getImgs().length
+// var gImgsNum = 2
 
 const elGallery = document.querySelector('.gallery')
 

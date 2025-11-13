@@ -30,16 +30,25 @@
                 <input oninput="onChangeTxt(this.value)" class="text-input" 
                 type="text" placeholder="Create your own phrase">
 
-                <!-- Dowload -->
-                <a href="" class="download-pic" onclick="onDownloadMeme(this)">Download</a>
+                <!-- Add line -->
+                <button class="add-line-btn" onclick="onAddLine()">+</button>
+
+                 <!-- Switches line --> 
+                <button class="switch-line-btn" onclick="onSwitchLine()">↑ ↓</button>
+
+                <div>
+                    <!-- Font size -->
+                    <button class="increase-txt-btn" onclick="onChangeTxtSize('increase')">A+</button>
+                    <button class="decrease-txt-btn" onclick="onChangeTxtSize('decrease')">A-</button>
+                </div>
 
                 <!-- Text color -->
                 <input value="#000000" type="color" id="color" name="color" onchange="
                 onChangeTextColor(this.value)"/>
 
-                <!-- Font size -->
-                <button class="increase-txt" onclick="onChangeTxtSize('increase')">A+</button>
-                <button class="decrease-txt" onclick="onChangeTxtSize('decrease')">A-</button>
+                <!-- Dowload -->
+                <a href="" class="download-pic" onclick="onDownloadMeme(this)">Download</a>
+
             </section>
 
     </main>

@@ -20,6 +20,7 @@ const gImgs = [
   { id: 17, url: 'img/17.jpg', keywords: ['movie', 'explain'] }
 ]
 
+var gSelectOperator = 'plus'
 
 var gMeme = { 
     selectedImgId: 2, 
@@ -50,7 +51,6 @@ function setTextColor(txtColor) {
     gMeme.lines[gMeme.selectedLineIdx].color = txtColor
 }
 
-
 function setImg(imgNameId) {
 
     const imgs = getImgs()
@@ -59,14 +59,15 @@ function setImg(imgNameId) {
 
     gMeme = { 
         selectedImgId: currImg.id, 
-        selectedLineIdx: 0, 
+        selectedLineIdx: '', 
         lines: [
             { 
-                txt: 'Why though?', 
-                size: 20, 
+                txt: 'Me trying to act normal', 
+                size: 30, 
                 color: 'white' 
-            }] 
-        }
+            }
+        ] 
+    }
 }
 
 function setTextSize(choice) {
@@ -81,5 +82,40 @@ function setTextSize(choice) {
             gMeme.lines[gMeme.selectedLineIdx].size--
         }
     }
+}
+
+function addLine() {
+    gMeme.lines.push(
+        { 
+            txt: '…after doing something weird.', 
+            size: 25, 
+            color: 'white' 
+        }
+    )
+}
+
+function changeSelectedLine() {
+
+    const { lines, selectedLineIdx } = gMeme
+    let newIdx = selectedLineIdx
+
+    if (gSelectOperator === 'plus') {
+        newIdx++
+        if (newIdx >= lines.length) {
+            gSelectOperator = 'minus'
+            newIdx = lines.length - 2
+        }
+    } else {
+        newIdx--
+        if (newIdx < 0) {
+            gSelectOperator = 'plus'
+            newIdx = 1
+        }
+    }
+
+    newIdx = Math.max(0, Math.min(newIdx, lines.length - 1))
+    gMeme.selectedLineIdx = newIdx
+
+    console.log('selected line:', gMeme.lines[newIdx])
 }
 

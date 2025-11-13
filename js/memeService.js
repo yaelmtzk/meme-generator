@@ -22,16 +22,7 @@ const gImgs = [
 
 var gSelectOperator = 'plus'
 
-var gMeme = { 
-    selectedImgId: 2, 
-    selectedLineIdx: 0, 
-    lines: [
-        { 
-            txt: 'Why though?', 
-            size: 30, 
-            color: 'white' 
-        }] 
-    } 
+var gMeme = {} 
 
 var gKeywordSearchCountMap = {} //{'funny': 12,'cat': 16, 'baby': 2} 
 
@@ -60,13 +51,7 @@ function setImg(imgNameId) {
     gMeme = { 
         selectedImgId: currImg.id, 
         selectedLineIdx: '', 
-        lines: [
-            { 
-                txt: 'Me trying to act normal', 
-                size: 30, 
-                color: 'white' 
-            }
-        ] 
+        lines: [_addLine()]
     }
 }
 
@@ -84,19 +69,26 @@ function setTextSize(choice) {
     }
 }
 
-function addLine() {
-    gMeme.lines.push(
-        { 
-            txt: '…after doing something weird.', 
+function _addLine(text) {
+    const newline = { 
+            txt: text || 'Write your text here',
             size: 25, 
-            color: 'white' 
+            color: 'white'
         }
-    )
+    return newline
+}
+
+function addNewLine() {
+    gMeme.lines.push(_addLine())
+    
 }
 
 function changeSelectedLine() {
+    
+    if (!gMeme.selectedLineIdx) gMeme.selectedLineIdx = 0
 
     const { lines, selectedLineIdx } = gMeme
+
     let newIdx = selectedLineIdx
 
     if (gSelectOperator === 'plus') {

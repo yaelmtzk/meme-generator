@@ -5,7 +5,9 @@ var gImgsNum = 2
 
 const elGallery = document.querySelector('.gallery')
 
-renderGalery()
+function onInit(){
+    renderGalery()
+}
 
 function renderGalery() {
     var strHtml = ''

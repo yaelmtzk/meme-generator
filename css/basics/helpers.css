@@ -1,0 +1,25 @@
+/* flex helpers */
+
+.flex {
+    display: flex;
+}
+
+.grid{
+    display: grid;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.place-items-center{
+    place-items: center;
+}
+
+.hide{
+    display: none;
+}

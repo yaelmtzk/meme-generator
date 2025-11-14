@@ -1,0 +1,84 @@
+.editor{
+    gap: 1rem;
+
+    button{
+        border: none;
+        border-radius: 5px;
+        padding: 0.4rem;
+        background-color: var(--color5);
+    }
+    .arrow{
+        border: none;
+        background-color: transparent;
+        outline: none;
+        padding: 0;
+        padding-bottom: 0.2rem;
+    }
+}
+
+.edit-panel{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    padding: 1rem;
+    background-color: var(--sec-color);
+
+    gap: 0.4 rem;
+
+    >*{
+        padding: 0.4rem;        
+    }
+}
+
+.line-edit-btns{
+    place-self: center;
+    background-color: var(--color4);
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+.text-edit-btns{
+    place-self: center;
+    place-items: center;
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--color4);
+
+    padding: 0.5rem;
+    border-radius: 10px;
+    gap: 0.4rem;
+}
+
+.stickers{
+    background-color: var(--color5);
+    border-radius: 5px;
+}
+
+#color{
+    cursor: pointer;
+}
+
+.sticker{
+    height: 40px;
+    cursor: pointer;
+}
+
+.share{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.fa-angle-right, .fa-angle-left{
+    font-size: 2rem;
+}
+
+.btn{
+    display: inline-block;
+    padding: 0.6em 1.2em;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    background-color: var(--color4);
+}

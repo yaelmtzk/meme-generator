@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    font-size: 1rem; 
+    font-family: sans-serif;
+
+}
+
+body{   
+    line-height: 1.111111111111111;
+    background: url("/img/back.jpg");
+    background-size:contain; 
+
+    height: 100vh;
+    width: 100vw;
+
+    position: relative;
+}
+
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-color: white;
+    opacity: 0.8;
+    z-index: -1;
+}
+
+main{
+    padding-bottom: 5rem;
+}
+
+header, footer{
+    background-color: var(--prim-color);
+
+}
+.pictures img{
+    height: 200px;
+    cursor: pointer;
+}
+
+button{
+    cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}

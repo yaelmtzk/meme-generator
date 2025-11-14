@@ -1,0 +1,32 @@
+.gallery{
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.search{
+    background-color: var(--color2);
+    padding: 1rem;
+}
+.search-sec input{
+    width: 200px;
+    border: none;
+    border-bottom: solid 1px black;
+    outline: none;
+    background-color: transparent;
+}
+
+.search-sec button{
+    border: none;
+    background-color: transparent;
+}
+
+.pictures{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content:space-evenly;
+}
+
+.pictures img {
+    border-radius: 10px;
+}

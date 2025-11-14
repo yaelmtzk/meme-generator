@@ -4,20 +4,21 @@ var gImgsNum = getImgs().length
 // var gImgsNum = 2
 
 const elGallery = document.querySelector('.gallery')
+const elPictures = document.querySelector('.pictures')
 
 function onInit(){
-    renderGalery()
+    renderGallery()
 }
 
-function renderGalery() {
+function renderGallery() {
+
     var strHtml = ''
     
-
     for (let i = 0; i < gImgsNum; i++) {
         strHtml += `<img id="${i+1}" src="img/${i+1}.jpg" alt="${i+1}.jpg" onclick="onImgSelect(${i+1})">`
     }
     
-    elGallery.innerHTML = strHtml
+    elPictures.innerHTML = strHtml
 }
 
 function onImgSelect(nameId) {

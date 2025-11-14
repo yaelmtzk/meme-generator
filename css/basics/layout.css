@@ -1,0 +1,46 @@
+/* main layout */
+.main-layout {
+    display: grid;
+    grid-template-columns:1fr 3fr 1fr;
+
+    >*{
+        grid-column: 2;
+    }
+
+    >.full {
+        grid-column: 1 / -1;
+    }
+}
+
+main{
+    padding-top: 4.6rem;
+    align-self: center;
+}
+
+.editor{
+    grid-template-areas: 'canvas aside';
+}
+
+.search{
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    gap: 1rem;
+
+    .search-sec{
+        grid-column: 1;
+    }
+    .categories{
+        grid-column: 2;
+
+    }
+}
+
+.canvas-container{
+    grid-area: canvas;
+}
+
+.edit-panel{
+    grid-area: aside;
+}
+
+

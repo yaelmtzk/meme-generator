@@ -2,23 +2,56 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/main.css" />
-  <title>Meme Generator</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://kit.fontawesome.com/3840c4ba5c.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <title>Meme Generator</title>
 </head>
 
-<body onload="onInit()">
+<body onload="onInit()" class="main-layout">
 
-    <header></header>
+    <header class=" full align-center main-layout">
+        <div class="inner-header flex space-between align-center">
+            <img class="logo" src="img/logo.png" alt="logo">
+            
+            <nav class="flex">
+                <a href="#gallery">Gallery</a>
+                <a href="#">Memes</a>
+                <a href="#">About</a>
+            </nav>
+        </div>
+    </header>
 
-    <main>
-        <h1>Meme Generator</h1>
+    <main class="flex" >
         <!-- Gallery -->
-        <section class="gallery"></section>
-        <!-- Editor -->
-        <section class="editor hide">
+        <section class="gallery flex" id = "gallery" >
 
+            <!-- Search box -->
+            <section class="search grid">
+                <div class="search-sec flex">
+                    <input type="text" class="search-box" placeholder="search">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+
+                <div class="categories flex space-between "> 
+                    <a href="">cute</a>
+                    <a href="">dog</a>
+                    <a href="">baby</a>
+                    <a href="">animal</a>
+                    <a href="">...more</a>
+                </div>
+            </section>
+
+            <!-- Pictures -->
+            <div class="pictures"></div>
+
+        </section>
+        <!-- Editor -->
+        <section class="editor grid hide">
             <!-- Canvas -->
             <section class="canvas-container"> 
                 <canvas width="400" height="400" onclick="onClick(event)">
@@ -30,27 +63,114 @@
                 <input oninput="onChangeTxt(this.value)" class="text-input" 
                 type="text" placeholder="Create your own phrase">
 
-                <!-- Add line -->
-                <button class="add-line-btn" onclick="onAddLine()">+</button>
+                <div class="line-edit-btns">
+                    <!-- Move Up/Down -->
+                    <button class="move-up-btn" onclick="">
+                        <i class="fa-solid fa-arrow-up"></i>
+                    </button>
+                    <button class="move-down-btn" onclick="">
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </button>
+                    
+                    <!-- Switches line --> 
+                    <button class="switch-btn" onclick="onSwitchLine()">
+                        <i class="fa-solid fa-arrows-up-down"></i>
+                    </button>
 
-                <div>
-                    <!-- Font size -->
-                    <button class="increase-txt-btn" onclick="onChangeTxtSize('increase')">A+</button>
-                    <button class="decrease-txt-btn" onclick="onChangeTxtSize('decrease')">A-</button>
+                    <!-- Add line -->
+                    <button class="add-btn" onclick="onAddLine()">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                    <!-- Delete -->
+                    <button class="delete-btn" onclick="">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>                    
                 </div>
 
-                <!-- Text color -->
-                <input value="#000000" type="color" id="color" name="color" onchange="
-                onChangeTextColor(this.value)"/>
+                <div class="text-edit-btns">
+                    <div>
+                        <!-- Font size -->
+                        <button class="increase-txt-btn" onclick="onChangeTxtSize('increase')">
+                            <i class="fa-solid fa-font"></i>
+                            <sup>+</sup></button>
+                        <button class="decrease-txt-btn" onclick="onChangeTxtSize('decrease')">
+                            <i class="fa-solid fa-font"></i>
+                            <sup>-</sup></button>
+                        <!-- Align -->
+                        <button class="align-left-btn" onclick="">
+                            <i class="fa-solid fa-align-left"></i>
+                        </button>
+                        <button class="align-center-btn" onclick="">
+                            <i class="fa-solid fa-align-center"></i>
+                        </button>      
+                        <button class="align-right-btn" onclick="">
+                            <i class="fa-solid fa-align-right"></i>
+                        </button>                                      
+                    </div>
 
-                <!-- Dowload -->
-                <a href="javascript:void(0)" class="download-pic" onclick="onDownloadMeme(this)">Download</a>
+                    <div>
+                        <!-- Font Family -->
+                        <select id="font-select" name="font-select">
+                            <option value="option1">Font 1</option>
+                            <option value="option2">Font 2</option>
+                            <option value="option3">Font 3</option>
+                        </select>
+
+                        <!-- Stroke color -->
+                        <button>
+                            <input value="#000000" type="color" id="str-color" name="str-color" onchange=""/>
+                            <i class="fa-solid fa-border-top-left"></i>
+                        </button>
+                        
+                        <!-- Text color -->
+                        <button>
+                            <input value="#000000" type="color" id="color" name="color" onchange="
+                            onChangeTextColor(this.value)"/> 
+                            <i class="fa-solid fa-palette"></i>                           
+                        </button>
+                    </div>
+
+                </div>
+                <!-- Stickers -->
+                <div class="stickers">
+                    <button class="arrow"><i class="fa-solid fa-angle-left"></i></button>
+                        <img class="sticker" src="img/sticker1.png" alt="sticker 1">
+                        <img class="sticker" src="img/sticker2.png" alt="sticker 2">
+                        <img class="sticker" src="img/sticker3.png" alt="sticker 3">
+                        <img class="sticker" src="img/sticker4.png" alt="sticker 4">
+                        <img class="sticker" src="img/sticker5.png" alt="sticker 5">
+                    <button class="arrow"><i class="fa-solid fa-angle-right"></i></button>
+                </div>
+
+                <div class="share">
+                    <!-- Share -->
+
+                        <a href="javascript:void(0)" class="share-pic btn" onclick="">
+                        <i class="fa-solid fa-share-nodes"></i></a>                        
+
+
+                    <!-- Dowload -->
+
+                        <a href="javascript:void(0)" class="download-pic btn" onclick="onDownloadMeme(this)">
+                        <i class="fa-solid fa-download"></i></a>
+
+                </div>
 
             </section>
 
+        <!-- Saved Memes -->
+        <section class="saved-memes hide"></section>
+
+        <!-- About -->
+        <section class="about hide"></section>
+
     </main>
 
-    <footer></footer>
+    <footer class="flex">
+        <p>© 2025 Meme Generator. All rights reserved.</p>
+    </footer>
+
 
     <script src="js/memeService.js"></script>
     <script src="js/memeController.js"></script>

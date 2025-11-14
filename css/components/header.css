@@ -1,0 +1,19 @@
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.logo{
+    height: 5rem;
+}
+
+nav{
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--color1);
+}

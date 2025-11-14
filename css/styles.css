@@ -1,29 +1,19 @@
 /* SETUP */
-@import url('/css/setup/vars.css');
+@import url('setup/vars.css');
 /* @import url('/styles/setup/typography.css'); */
 
 /* BASICS */
-@import url('/css/basics/base.css');
-@import url('/css/basics/layout.css');
-@import url('/css/basics/helpers.css');
+@import url('basics/base.css');
+@import url('basics/layout.css');
+@import url('basics/helpers.css');
 
 /* COMPONENTS */
 
-@import url('/css/components/footer.css');
-@import url('/css/components/header.css');
-@import url('/css/components/gallery.css');
-@import url('/css/components/editor.css');
-@import url('/css/components/search.css');
-
-
-/* @import url('/styles/components/logo.css');
-@import url('/styles/components/main-nav.css');
-@import url('/styles/components/main-content.css');
-@import url('/styles/components/card.css');
-@import url('/styles/components/main-screen.css');
-@import url('/styles/components/nav-page.css');
-@import url('/styles/components/journal-menu.css');
-@import url('/styles/components/read-more.css'); */
+@import url('components/footer.css');
+@import url('components/header.css');
+@import url('components/gallery.css');
+@import url('components/editor.css');
+@import url('components/search.css');
 
 /* MQ */
-@import url('/css/setup/mq.css');
+@import url('setup/mq.css');

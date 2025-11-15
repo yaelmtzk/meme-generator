@@ -14,15 +14,23 @@
 
 <body onload="onInit()" class="main-layout">
 
+    <div class="main-screen" onclick="toggleMenu()"></div>
+
     <header class=" full align-center main-layout">
         <div class="inner-header flex space-between align-center">
             <img class="logo" src="img/logo.png" alt="logo">
-            
-            <nav class="flex">
-                <a href="#gallery">Gallery</a>
-                <a href="#">Memes</a>
-                <a href="#">About</a>
+
+
+            <nav class="main-nav">
+                <ul class="main-nav-list flex space-between clean-list">
+                    <li class="flex align-center center"><a href="#gallery" onclick="showGallery()">Gallery</a></li>
+                    <li class="flex align-center center"><a href="#">Memes</a></li>
+                    <li class="flex align-center center"><a href="#">About</a></li>
+                </ul>
             </nav>
+
+            <button class="btn-toggle-menu" onclick="toggleMenu()">☰</button>
+            
         </div>
     </header>
 
@@ -37,13 +45,13 @@
                     <button><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
 
-                <div class="categories flex space-between "> 
-                    <a href="">cute</a>
-                    <a href="">dog</a>
-                    <a href="">baby</a>
-                    <a href="">animal</a>
-                    <a href="">...more</a>
-                </div>
+                <ul class="categories flex space-around clean-list">
+                    <li class="hide">cute</li>
+                    <li class="hide">dog</li>
+                    <li class="hide">baby</li>
+                    <li class="hide">animal</li>
+                    <li>...more</li>
+                </ul>
             </section>
 
             <!-- Pictures -->
@@ -65,10 +73,10 @@
 
                 <div class="line-edit-btns">
                     <!-- Move Up/Down -->
-                    <button class="move-up-btn" onclick="">
+                    <button class="move-up-btn hide" onclick="">
                         <i class="fa-solid fa-arrow-up"></i>
                     </button>
-                    <button class="move-down-btn" onclick="">
+                    <button class="move-down-btn hide" onclick="">
                         <i class="fa-solid fa-arrow-down"></i>
                     </button>
                     
@@ -118,17 +126,13 @@
                         </select>
 
                         <!-- Stroke color -->
-                        <button>
-                            <input value="#000000" type="color" id="str-color" name="str-color" onchange=""/>
-                            <i class="fa-solid fa-border-top-left"></i>
-                        </button>
+                        <label for="str-color" class="str-color-lbl color-btn"><i class="fa-solid fa-border-top-left"></i></label>
+                        <input type="color" id="str-color" value="#000000" class="color" onchange="">
                         
                         <!-- Text color -->
-                        <button>
-                            <input value="#000000" type="color" id="color" name="color" onchange="
-                            onChangeTextColor(this.value)"/> 
-                            <i class="fa-solid fa-palette"></i>                           
-                        </button>
+                        <label for="color" class="color-lbl color-btn"><i class="fa-solid fa-palette"></i></label>
+                        <input type="color" id="color" value="#000000" class="color" onchange="onChangeTextColor(this.value)">
+
                     </div>
 
                 </div>
@@ -149,7 +153,6 @@
                         <a href="javascript:void(0)" class="share-pic btn" onclick="">
                         <i class="fa-solid fa-share-nodes"></i></a>                        
 
-
                     <!-- Dowload -->
 
                         <a href="javascript:void(0)" class="download-pic btn" onclick="onDownloadMeme(this)">
@@ -158,6 +161,7 @@
                 </div>
 
             </section>
+        </section>
 
         <!-- Saved Memes -->
         <section class="saved-memes hide"></section>
@@ -167,7 +171,7 @@
 
     </main>
 
-    <footer class="flex">
+    <footer class="flex full">
         <p>© 2025 Meme Generator. All rights reserved.</p>
     </footer>
 

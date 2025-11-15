@@ -13,12 +13,13 @@
 }
 
 main{
-    padding-top: 4.6rem;
+    padding-top: 0.5rem;
     align-self: center;
 }
 
 .editor{
-    grid-template-areas: 'canvas aside';
+    grid-template-columns: 1fr 1fr;
+
 }
 
 .search{
@@ -36,11 +37,11 @@ main{
 }
 
 .canvas-container{
-    grid-area: canvas;
+    grid-column: 1;
 }
 
 .edit-panel{
-    grid-area: aside;
+    grid-column: 2;
 }
 
 

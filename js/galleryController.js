@@ -26,7 +26,22 @@ function onImgSelect(nameId) {
 
     renderMeme()
 
-    elGallery.classList.add('hide')
-
-    document.querySelector('.editor').classList.remove('hide')
+    showEditor()
 }
+
+function showGallery() {
+    elGallery.classList.remove('hide')
+
+    document.querySelector('.editor').classList.add('hide')
+
+    document.querySelector('.saved-memes').classList.add('hide')
+
+    document.querySelector('.about').classList.add('hide')
+
+    toggleMenu()
+}
+
+function toggleMenu() {
+    document.body.classList.toggle('menu-open')
+}
+

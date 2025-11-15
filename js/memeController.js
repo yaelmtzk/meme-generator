@@ -156,3 +156,11 @@ function onSwitchLine() {
     const meme = getMeme()
     document.querySelector('.text-input').value = meme.lines[meme.selectedLineIdx].txt
 }
+
+function showEditor() {
+    document.querySelector('.editor').classList.remove('hide')
+    document.querySelector('.gallery').classList.add('hide')
+    document.querySelector('.saved-memes').classList.add('hide')
+    document.querySelector('.about').classList.add('hide')
+ 
+}

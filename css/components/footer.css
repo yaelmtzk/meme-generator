@@ -1,12 +1,16 @@
 footer {
-    position: fixed;
+    /* position: relative;
     bottom: 0;
     left: 0;
-    right: 0;
+    right: 0; */
+
+    height: fit-content;
 
     place-content: center;
 
     color: var(--color1);
 
     padding: 1rem;
+
+    align-self: end;
 }

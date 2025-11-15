@@ -1,19 +1,22 @@
 header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    align-self: start;
 }
 
 .logo{
     height: 5rem;
 }
 
-nav{
-    display: flex;
-    gap: 2rem;
+
+.main-nav-list a {
+    color: var(--color1);
 }
 
-nav a {
-    color: var(--color1);
+.btn-toggle-menu{
+    cursor: pointer;
+    background-color: var(--color2);
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1rem;
 }

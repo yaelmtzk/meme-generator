@@ -1,0 +1,16 @@
+.search{
+    background-color: var(--color2);
+    padding: 1rem;
+}
+.search-sec input{
+    width: 200px;
+    border: none;
+    border-bottom: solid 1px black;
+    outline: none;
+    background-color: transparent;
+}
+
+.search-sec button{
+    border: none;
+    background-color: transparent;
+}

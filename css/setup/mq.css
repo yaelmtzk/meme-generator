@@ -117,5 +117,9 @@
             display: block;
         }
     }
+
+    .move-up-btn, .move-down-btn{
+        display: inline-block;
+    }
 }
 

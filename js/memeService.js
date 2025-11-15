@@ -42,6 +42,12 @@ function setTextColor(txtColor) {
     gMeme.lines[gMeme.selectedLineIdx].color = txtColor
 }
 
+function setTxtHeight(dir) {
+    
+    if(dir==='up') gMeme.lines[gMeme.selectedLineIdx].coord.y--
+    else gMeme.lines[gMeme.selectedLineIdx].coord.y++
+}
+
 function setFontFamily(font){
     gMeme.lines.forEach(line => {
         line.fontFam = font

@@ -71,8 +71,13 @@ function renderTxt(memeObj) {
             acc++
         }
 
+        if (line.coord.x === 0 & line.coord.y === 0){
         line.coord.x = x
         line.coord.y = y       
+        }
+   
+        x = line.coord.x
+        y = line.coord.y
 
         gCtx.lineWidth = 1.5
         gCtx.strokeStyle = 'black'
@@ -154,6 +159,17 @@ function onSwitchLine() {
     const meme = getMeme()
     document.querySelector('.text-input').value = meme.lines[meme.selectedLineIdx].txt
 }
+
+function onMoveUp() {
+    setTxtHeight('up')
+    renderMeme()
+}
+
+function onMoveDown() {
+    setTxtHeight('down')
+    renderMeme()
+}
+
 
 function showEditor() {
     document.querySelector('.editor').classList.remove('hide')

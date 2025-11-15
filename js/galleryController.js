@@ -41,6 +41,8 @@ function showGallery() {
 }
 
 function toggleMenu() {
+    const el = document.querySelector('body')
+    if (!el.classList.contains('menu-open')) return
     document.body.classList.toggle('menu-open')
 }
 

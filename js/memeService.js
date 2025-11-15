@@ -121,3 +121,8 @@ function changeSelectedLine() {
     }
     gMeme.selectedLineIdx = idx
 }
+
+function deleteLine() {
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+    gMeme.selectedLineIdx = -1
+}

@@ -160,6 +160,11 @@ function onSwitchLine() {
     document.querySelector('.text-input').value = meme.lines[meme.selectedLineIdx].txt
 }
 
+function onChangeFontFamily(font) {
+    setFontFamily(font)
+    renderMeme()
+}
+
 function onMoveUp() {
     setTxtHeight('up')
     renderMeme()
@@ -170,6 +175,10 @@ function onMoveDown() {
     renderMeme()
 }
 
+function onDeleteLine() {  
+    deleteLine()
+    renderMeme()
+}
 
 function showEditor() {
     document.querySelector('.editor').classList.remove('hide')

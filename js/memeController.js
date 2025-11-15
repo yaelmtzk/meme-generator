@@ -12,7 +12,6 @@ function renderMeme() {
     const currMeme = getMeme()
     const memeUrl = images.find(img => img.id === currMeme.selectedImgId).url
     
-    // Adds Img
     const img = new Image()
     img.src = memeUrl   
 
@@ -84,7 +83,6 @@ function renderTxt(memeObj) {
         gCtx.fillText(text, x, y)
         gCtx.strokeText(text, x, y)
 
-        //Adds box around selected line
         if (lines.indexOf(line) === memeObj.selectedLineIdx){
             renderTxtBox (text, x, y)
         }

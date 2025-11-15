@@ -42,6 +42,12 @@ function setTextColor(txtColor) {
     gMeme.lines[gMeme.selectedLineIdx].color = txtColor
 }
 
+function setFontFamily(font){
+    gMeme.lines.forEach(line => {
+        line.fontFam = font
+    })
+}
+
 function setImg(imgNameId) {
 
     const imgs = getImgs()
@@ -74,7 +80,8 @@ function _addLine(text) {
             txt: text || 'Write your text here',
             size: 25, 
             color: 'white',
-            coord: {x: 0, y: 0}
+            coord: {x: 0, y: 0},
+            fontFam: 'Arial'
         }
     return newline
 }

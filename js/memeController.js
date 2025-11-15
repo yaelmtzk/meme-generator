@@ -78,7 +78,7 @@ function renderTxt(memeObj) {
         gCtx.lineWidth = 1.5
         gCtx.strokeStyle = 'black'
         gCtx.fillStyle = line.color
-        gCtx.font = `bold ${line.size}px Arial`
+        gCtx.font = `bold ${line.size}px ${line.fontFam}`
         gCtx.textAlign = 'center'
         gCtx.textBaseline = 'middle'
         gCtx.fillText(text, x, y)
@@ -162,5 +162,9 @@ function showEditor() {
     document.querySelector('.gallery').classList.add('hide')
     document.querySelector('.saved-memes').classList.add('hide')
     document.querySelector('.about').classList.add('hide')
- 
+}
+
+function onChangeFontFamily(font) {
+    setFontFamily(font)
+    renderMeme()
 }

@@ -119,10 +119,12 @@
 
                     <div>
                         <!-- Font Family -->
-                        <select id="font-select" name="font-select">
-                            <option value="option1">Font 1</option>
-                            <option value="option2">Font 2</option>
-                            <option value="option3">Font 3</option>
+                        <select id="font-select" name="font-select" onchange="onChangeFontFamily(this.value)">
+                            <option value="Arial">Arial</option>
+                            <option value="Impact">Impact</option>
+                            <option value="'Comic Sans MS'">Comic Sans</option>
+                            <option value="'Times New Roman'">Times New Roman</option>
+                            <option value="'Courier New'">Courier New</option>
                         </select>
 
                         <!-- Stroke color -->

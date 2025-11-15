@@ -42,6 +42,10 @@ function setTextColor(txtColor) {
     gMeme.lines[gMeme.selectedLineIdx].color = txtColor
 }
 
+function setStrokeColor(strColor) {    
+    gMeme.lines[gMeme.selectedLineIdx].strColor = strColor
+}
+
 function setTxtHeight(dir) {
     
     if(dir==='up') gMeme.lines[gMeme.selectedLineIdx].coord.y--
@@ -86,6 +90,7 @@ function _addLine(text) {
             txt: text || 'Write your text here',
             size: 25, 
             color: 'white',
+            strColor: 'black',
             coord: {x: 0, y: 0},
             fontFam: 'Arial'
         }

@@ -35,6 +35,11 @@ function onChangeTextColor(color){
     renderMeme()
 }
 
+function onChangeStrokeColor(color){    
+    setStrokeColor(color)
+    renderMeme()
+}
+
 function onChangeTxtSize(change){
     setTextSize(change)
     renderMeme()
@@ -72,15 +77,15 @@ function renderTxt(memeObj) {
         }
 
         if (line.coord.x === 0 & line.coord.y === 0){
-        line.coord.x = x
-        line.coord.y = y       
+            line.coord.x = x
+            line.coord.y = y                
         }
    
         x = line.coord.x
         y = line.coord.y
 
         gCtx.lineWidth = 1.5
-        gCtx.strokeStyle = 'black'
+        gCtx.strokeStyle = line.strColor
         gCtx.fillStyle = line.color
         gCtx.font = `bold ${line.size}px ${line.fontFam}`
         gCtx.textAlign = 'center'
@@ -185,9 +190,4 @@ function showEditor() {
     document.querySelector('.gallery').classList.add('hide')
     document.querySelector('.saved-memes').classList.add('hide')
     document.querySelector('.about').classList.add('hide')
-}
-
-function onChangeFontFamily(font) {
-    setFontFamily(font)
-    renderMeme()
 }

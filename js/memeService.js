@@ -67,8 +67,14 @@ function setImg(imgNameId) {
     gMeme = { 
         selectedImgId: currImg.id, 
         selectedLineIdx: -1, 
-        lines: [_addLine()]
+        lines: [_addLine()],
+        sticker:''
     }
+}
+
+function setSticker(imgNameId) {
+    if (gMeme.sticker === imgNameId) gMeme.sticker = ''
+    else gMeme.sticker = imgNameId
 }
 
 function setTextSize(choice) {
@@ -85,6 +91,10 @@ function setTextSize(choice) {
     }
 }
 
+function setAlignment(pos) {
+    gMeme.lines[gMeme.selectedLineIdx].align = pos
+}
+
 function _addLine(text) {
     const newline = { 
             txt: text || 'Write your text here',
@@ -92,7 +102,8 @@ function _addLine(text) {
             color: 'white',
             strColor: 'black',
             coord: {x: 0, y: 0},
-            fontFam: 'Arial'
+            fontFam: 'Arial',
+            align: 'center'
         }
     return newline
 }

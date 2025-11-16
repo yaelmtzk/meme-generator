@@ -39,7 +39,7 @@
         <section class="gallery flex" id = "gallery" >
 
             <!-- Search box -->
-            <section class="search grid">
+            <section class="search grid hide">
                 <div class="search-sec flex">
                     <input type="text" class="search-box" placeholder="search">
                     <button><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -106,13 +106,13 @@
                             <i class="fa-solid fa-font"></i>
                             <sup>-</sup></button>
                         <!-- Align -->
-                        <button class="align-left-btn" onclick="onAlign('left')">
+                        <button class="align-left-btn hide" onclick="onAlign('left')">
                             <i class="fa-solid fa-align-left"></i>
                         </button>
-                        <button class="align-center-btn" onclick="onAlign('center')">
+                        <button class="align-center-btn hide" onclick="onAlign('center')">
                             <i class="fa-solid fa-align-center"></i>
                         </button>      
-                        <button class="align-right-btn" onclick="onAlign('right')">
+                        <button class="align-right-btn hide" onclick="onAlign('right')">
                             <i class="fa-solid fa-align-right"></i>
                         </button>                                      
                     </div>
@@ -142,14 +142,19 @@
                 <div class="stickers"></div>
 
                 <div class="share">
+
+                    <!-- Save -->
+                     
+                    <a href="javascript:void(0)" class="save-pic btn hide" onclick="onShareImg(event)">
+                    <i class="fa-regular fa-floppy-disk"></i></a>
+
                     <!-- Share -->
 
-                        <a href="javascript:void(0)" class="share-pic btn" onclick="">
-                        <i class="fa-solid fa-share-nodes"></i></a>                        
+                    <a href="javascript:void(0)" class="share-pic btn hide" onclick="">
+                    <i class="fa-solid fa-share-nodes"></i></a>                        
 
                     <!-- Dowload -->
-
-                        <a href="javascript:void(0)" class="download-pic btn" onclick="onDownloadMeme(this)">
+                        <a href="javascript:void(0)" class="download-pic btn" onclick="onDownloadMeme()">
                         <i class="fa-solid fa-download"></i></a>
 
                 </div>
@@ -170,6 +175,7 @@
     </footer>
 
 
+    <script src="js/storageService.js"></script>
     <script src="js/memeService.js"></script>
     <script src="js/memeController.js"></script>
     <script src="js/galleryController.js"></script>    

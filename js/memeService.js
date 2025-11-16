@@ -67,6 +67,7 @@ function setImg(imgNameId) {
     gMeme = { 
         selectedImgId: currImg.id, 
         selectedLineIdx: -1, 
+        hideBox: false,
         lines: [_addLine()],
         sticker:''
     }

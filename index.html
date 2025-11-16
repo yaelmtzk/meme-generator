@@ -14,29 +14,29 @@
 
 <body onload="onInit()" class="main-layout">
 
-    <div class="main-screen" onclick="toggleMenu()"></div>
+    <div class="screen-bg" onclick="toggleMenu()"></div>
 
-    <header class=" full align-center main-layout">
-        <div class="inner-header flex space-between align-center">
+    <header class=" full main-layout">
+        <div class="inner-header flex space-between">
             <img class="logo" src="img/logo.png" alt="logo">
-
 
             <nav class="main-nav">
                 <ul class="main-nav-list flex space-between clean-list">
-                    <li class="flex align-center center"><a href="#gallery" onclick="showGallery()">Gallery</a></li>
-                    <li class="flex align-center center"><a href="#">Memes</a></li>
-                    <li class="flex align-center center"><a href="#">About</a></li>
+                    <li class="flex"><a href="#gallery" onclick="showGallery()">Gallery</a></li>
+                    <li class="flex"><a href="#">Memes</a></li>
+                    <li class="flex"><a href="#">About</a></li>
                 </ul>
             </nav>
 
             <button class="btn-toggle-menu" onclick="toggleMenu()">☰</button>
-            
         </div>
     </header>
 
     <main class="flex" >
         <!-- Gallery -->
-        <section class="gallery flex" id = "gallery" >
+        <section class="gallery flex">
+
+            <h2>Choose an image</h2>
 
             <!-- Search box -->
             <section class="search grid hide">
@@ -58,6 +58,7 @@
             <div class="pictures"></div>
 
         </section>
+
         <!-- Editor -->
         <section class="editor grid hide">
             <!-- Canvas -->
@@ -67,31 +68,33 @@
             </section>
 
             <section class="edit-panel">
+                <p>Craft Your Masterpiece</p>
+
                 <!-- Edit text -->
                 <input oninput="onChangeTxt(this.value)" class="text-input" 
                 type="text" placeholder="Create your own phrase">
 
                 <div class="line-edit-btns">
                     <!-- Move Up/Down -->
-                    <button class="move-up-btn hide" onclick="onMoveUp()">
+                    <button class="move-up-btn hide" title="Move up" onclick="onMoveUp()">
                         <i class="fa-solid fa-arrow-up"></i>
                     </button>
-                    <button class="move-down-btn hide" onclick="onMoveDown()">
+                    <button class="move-down-btn hide" title="Move down" onclick="onMoveDown()">
                         <i class="fa-solid fa-arrow-down"></i>
                     </button>
                     
                     <!-- Switches line --> 
-                    <button class="switch-btn" onclick="onSwitchLine()">
+                    <button class="switch-btn" title="Switch line" onclick="onSwitchLine()">
                         <i class="fa-solid fa-arrows-up-down"></i>
                     </button>
 
                     <!-- Add line -->
-                    <button class="add-btn" onclick="onAddLine()">
-                        <i class="fa-solid fa-plus"></i>
+                    <button class="add-btn" title="Add line" onclick="onAddLine()">
+                        <i class="fa-solid fa-list"></i><i class="fa-solid fa-plus"></i>
                     </button>
 
                     <!-- Delete -->
-                    <button class="delete-btn" onclick="onDeleteLine()">
+                    <button class="delete-btn" title="Delete" onclick="onDeleteLine()">
                         <i class="fa-solid fa-trash-can"></i>
                     </button>                    
                 </div>
@@ -99,20 +102,21 @@
                 <div class="text-edit-btns">
                     <div>
                         <!-- Font size -->
-                        <button class="increase-txt-btn" onclick="onChangeTxtSize('increase')">
-                            <i class="fa-solid fa-font"></i>
-                            <sup>+</sup></button>
-                        <button class="decrease-txt-btn" onclick="onChangeTxtSize('decrease')">
-                            <i class="fa-solid fa-font"></i>
-                            <sup>-</sup></button>
+                        <button class="increase-txt-btn" title="Increase font" onclick="onChangeTxtSize('increase')">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <button class="decrease-txt-btn" title="Decrease font" onclick="onChangeTxtSize('decrease')">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+
                         <!-- Align -->
-                        <button class="align-left-btn hide" onclick="onAlign('left')">
+                        <button class="align-left-btn hide" title="Align left" onclick="onAlign('left')">
                             <i class="fa-solid fa-align-left"></i>
                         </button>
-                        <button class="align-center-btn hide" onclick="onAlign('center')">
+                        <button class="align-center-btn hide" title="Align center" onclick="onAlign('center')">
                             <i class="fa-solid fa-align-center"></i>
                         </button>      
-                        <button class="align-right-btn hide" onclick="onAlign('right')">
+                        <button class="align-right-btn hide" title="Align right" onclick="onAlign('right')">
                             <i class="fa-solid fa-align-right"></i>
                         </button>                                      
                     </div>
@@ -128,33 +132,33 @@
                         </select>
 
                         <!-- Stroke color -->
-                        <label for="str-color" class="str-color-lbl color-btn"><i class="fa-solid fa-border-top-left"></i></label>
+                        <label for="str-color" class="str-color-lbl color-btn" title="Stroke color"><i class="fa-solid fa-border-top-left"></i></label>
                         <input type="color" id="str-color" value="#000000" class="color" onchange="onChangeStrokeColor(this.value)">
                         
                         <!-- Text color -->
-                        <label for="color" class="color-lbl color-btn"><i class="fa-solid fa-palette"></i></label>
+                        <label for="color" class="color-lbl color-btn" title="Text color"><i class="fa-solid fa-palette"></i></label>
                         <input type="color" id="color" value="#000000" class="color" onchange="onChangeTextColor(this.value)">
 
                     </div>
 
                 </div>
                 <!-- Stickers -->
-                <div class="stickers"></div>
+                <div class="stickers" title="Add sticker"></div>
 
                 <div class="share">
 
                     <!-- Save -->
                      
-                    <a href="javascript:void(0)" class="save-pic btn hide" onclick="onShareImg(event)">
+                    <a href="javascript:void(0)" class="save-pic btn hide" onclick="onShareImg(event)" title="Save Image">
                     <i class="fa-regular fa-floppy-disk"></i></a>
 
                     <!-- Share -->
 
-                    <a href="javascript:void(0)" class="share-pic btn hide" onclick="">
+                    <a href="javascript:void(0)" class="share-pic btn hide" onclick="" title="Share Image">
                     <i class="fa-solid fa-share-nodes"></i></a>                        
 
-                    <!-- Dowload -->
-                        <a href="javascript:void(0)" class="download-pic btn" onclick="onDownloadMeme()">
+                    <!-- Download -->
+                        <a href="javascript:void(0)" class="download-pic btn" onclick="onDownloadMeme()" title="Dowload">
                         <i class="fa-solid fa-download"></i></a>
 
                 </div>
@@ -174,8 +178,6 @@
         <p>© 2025 Meme Generator. All rights reserved.</p>
     </footer>
 
-
-    <script src="js/storageService.js"></script>
     <script src="js/memeService.js"></script>
     <script src="js/memeController.js"></script>
     <script src="js/galleryController.js"></script>    

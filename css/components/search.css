@@ -1,7 +1,9 @@
 .search{
-    background-color: var(--color2);
-    padding: 1rem;
+    background-color: rgba(var(--color6), 0.6);
+    padding: 2rem;
+    border-radius: 5px 5px;
 }
+
 .search-sec input{
     width: 200px;
     border: none;

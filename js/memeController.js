@@ -28,9 +28,7 @@ function renderMeme() {
 
                 renderTxt(currMeme)
             }
-        }
-
-        else renderTxt(currMeme)
+        } else renderTxt(currMeme)
 
     }
 
@@ -38,7 +36,6 @@ function renderMeme() {
     let strHtml = `<button class="arrow hide"><i class="fa-solid fa-angle-left"></i></button>`
 
     for (let i = 0; i < 5; i++) {
-
         strHtml += `<img class="sticker" onclick="onDrawSticker(${i+1})" src="img/sticker${i+1}.png" alt="sticker">`
     }
 
@@ -59,9 +56,7 @@ function onDownloadMeme(){
 
         meme.hideBox = false
         renderMeme()
-
     }, 50)
-
 }
 
 function onDrawSticker(name) {
@@ -88,7 +83,6 @@ function onChangeTxt(text) {
     const currMeme = getMeme()
     const lineIdx = currMeme.selectedLineIdx
     setLineText(text, lineIdx)
-
     renderMeme()
 }
 
@@ -126,7 +120,6 @@ function onMoveDown() {
 }
 
 function renderTxt(memeObj) {
-
     const lines = memeObj.lines
 
     let x = gElCanvas.width /2
@@ -221,7 +214,6 @@ function onClick(ev) {
             document.querySelector('.text-input').value = ''
         }
     }
-    
 }
 
 function showEditor() {

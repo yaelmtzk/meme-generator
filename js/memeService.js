@@ -47,7 +47,6 @@ function setStrokeColor(strColor) {
 }
 
 function setTxtHeight(dir) {
-    
     if(dir==='up') gMeme.lines[gMeme.selectedLineIdx].coord.y--
     else gMeme.lines[gMeme.selectedLineIdx].coord.y++
 }
@@ -59,7 +58,6 @@ function setFontFamily(font){
 }
 
 function setImg(imgNameId) {
-
     const imgs = getImgs()
 
     const currImg = imgs.find(img => img.id === imgNameId)
@@ -68,7 +66,7 @@ function setImg(imgNameId) {
         selectedImgId: currImg.id, 
         selectedLineIdx: -1, 
         hideBox: false,
-        lines: [_addLine()],
+        lines: [_createLine()],
         sticker:''
     }
 }
@@ -96,7 +94,7 @@ function setAlignment(pos) {
     gMeme.lines[gMeme.selectedLineIdx].align = pos
 }
 
-function _addLine(text) {
+function _createLine(text) {
     const newline = { 
             txt: text || 'Write your text here',
             size: 25, 
@@ -110,7 +108,7 @@ function _addLine(text) {
 }
 
 function addNewLine() {
-    gMeme.lines.push(_addLine())
+    gMeme.lines.push(_createLine())
 }
 
 function changeSelectedLine() {

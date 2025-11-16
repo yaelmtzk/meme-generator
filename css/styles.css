@@ -13,7 +13,7 @@
 @import url('components/gallery.css');
 @import url('components/editor.css');
 @import url('components/search.css');
-@import url('components/main-screen.css');
+@import url('components/screen-bg.css');
 
 /* MQ */
 @import url('setup/mq.css');

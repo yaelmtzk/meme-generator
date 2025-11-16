@@ -10,7 +10,7 @@ html {
 
 body{   
     line-height: 1.111111111111111;
-    background: url("/img/back.jpg");
+    background: url("../../img/back.jpg");
     background-size:contain; 
 
     height: 100vh;

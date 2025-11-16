@@ -14,6 +14,7 @@
 @import url('components/editor.css');
 @import url('components/search.css');
 @import url('components/screen-bg.css');
+@import url('components/about.css');
 
 /* MQ */
 @import url('setup/mq.css');

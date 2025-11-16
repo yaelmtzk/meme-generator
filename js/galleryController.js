@@ -33,6 +33,16 @@ function showGallery() {
     document.querySelector('.about').classList.add('hide')
 }
 
+function showAbout() {
+    const el = document.querySelector('body')
+    if (el.classList.contains('menu-open')) toggleMenu()
+
+    document.querySelector('.about').classList.remove('hide')    
+    document.querySelector('.editor').classList.add('hide')
+    document.querySelector('.saved-memes').classList.add('hide')
+    document.querySelector('.gallery').classList.add('hide')
+}
+
 function toggleMenu() {
     const el = document.querySelector('body')
     el.classList.toggle('menu-open')

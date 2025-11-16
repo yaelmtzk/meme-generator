@@ -1,3 +1,7 @@
+header{
+    height: fit-content;
+}
+
 .inner-header{
     align-items: center;
 }
